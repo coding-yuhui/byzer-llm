@@ -1,0 +1,34 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting transformers
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c1/bd/f64d67df4d3b05a460f281defe830ffab6d7940b7ca98ec085e94e024781/transformers-4.34.1-py3-none-any.whl (7.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.7/7.7 MB 4.5 MB/s eta 0:00:00
+Requirement already satisfied: filelock in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from transformers) (3.13.1)
+Requirement already satisfied: huggingface-hub<1.0,>=0.16.4 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from transformers) (0.18.0)
+Requirement already satisfied: numpy>=1.17 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from transformers) (1.26.1)
+Requirement already satisfied: packaging>=20.0 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from transformers) (23.2)
+Requirement already satisfied: pyyaml>=5.1 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from transformers) (6.0.1)
+Collecting regex!=2019.12.17 (from transformers)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/2c/6b/4828fdbbabcb51986ddc1e7c618cf9dc8606f75c2f0cc381d3729cf31348/regex-2023.10.3-cp310-cp310-macosx_10_9_x86_64.whl (296 kB)
+Requirement already satisfied: requests in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from transformers) (2.31.0)
+Collecting tokenizers<0.15,>=0.14 (from transformers)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f4/3e/3e8800424cee3d3097f84ca1a70311a4fdf14646f6cff934512c619c9ebe/tokenizers-0.14.1-cp310-cp310-macosx_10_7_x86_64.whl (2.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 13.1 MB/s eta 0:00:00
+Collecting safetensors>=0.3.1 (from transformers)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/79/dc/a72eb060f4f598314c5a96676d3790b51fff78e448253c7319a9441228a7/safetensors-0.4.0-cp310-cp310-macosx_10_7_x86_64.whl (439 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 439.2/439.2 kB 8.9 MB/s eta 0:00:00
+Requirement already satisfied: tqdm>=4.27 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from transformers) (4.66.1)
+Requirement already satisfied: fsspec>=2023.5.0 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.16.4->transformers) (2023.10.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.16.4->transformers) (4.8.0)
+Collecting huggingface-hub<1.0,>=0.16.4 (from transformers)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/aa/f3/3fc97336a0e90516901befd4f500f08d691034d387406fdbde85bea827cc/huggingface_hub-0.17.3-py3-none-any.whl (295 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 295.0/295.0 kB 7.1 MB/s eta 0:00:00
+Requirement already satisfied: charset-normalizer<4,>=2 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from requests->transformers) (3.3.1)
+Requirement already satisfied: idna<4,>=2.5 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from requests->transformers) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from requests->transformers) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in /Users/yuhui.liu/miniconda3/envs/byzer-llm/lib/python3.10/site-packages (from requests->transformers) (2023.7.22)
+Installing collected packages: safetensors, regex, huggingface-hub, tokenizers, transformers
+  Attempting uninstall: huggingface-hub
+    Found existing installation: huggingface-hub 0.18.0
+    Uninstalling huggingface-hub-0.18.0:
+      Successfully uninstalled huggingface-hub-0.18.0
+Successfully installed huggingface-hub-0.17.3 regex-2023.10.3 safetensors-0.4.0 tokenizers-0.14.1 transformers-4.34.1
