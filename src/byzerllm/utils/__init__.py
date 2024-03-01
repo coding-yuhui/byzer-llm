@@ -6,7 +6,7 @@ from transformers import PreTrainedTokenizer,StoppingCriteria
 import torch
 import hashlib
 import threading
-from typing import TYPE_CHECKING,TypeVar,Dict, List, Optional, Union,Any,Tuple,get_type_hints,Annotated,get_args,Callable
+from typing import TYPE_CHECKING,TypeVar,Dict, List, Optional, Union,Any,Tuple,get_type_hints,get_args,Callable
 import typing
 from ray.util.client.common import ClientActorHandle, ClientObjectRef
 import inspect
@@ -247,13 +247,14 @@ def get_type_name(t):
         return t.__name__
     
 def is_annotated_type(hint):
-    if hasattr(typing, '_AnnotatedAlias'):  # Python 3.9 and later
-        return isinstance(hint, typing._AnnotatedAlias)
-    elif hasattr(typing, '_SpecialForm'):  # Python versions before 3.9
-        # Check if it's a _SpecialForm and its name is 'Annotated'
-        return isinstance(hint, typing._SpecialForm) and hint.__name__ == 'Annotated'
-    else:
-        return False    
+    return False
+    #if hasattr(typing, '_AnnotatedAlias'):  # Python 3.9 and later
+    #    return isinstance(hint, typing._AnnotatedAlias)
+    #elif hasattr(typing, '_SpecialForm'):  # Python versions before 3.9
+    #    # Check if it's a _SpecialForm and its name is 'Annotated'
+    #    return isinstance(hint, typing._SpecialForm) and hint.__name__ == 'Annotated'
+    #else:
+    #    return False    
     
 def serialize_function_to_json(func):
     if isinstance(func, str):

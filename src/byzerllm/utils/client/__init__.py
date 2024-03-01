@@ -1,5 +1,5 @@
 from pyjava import PythonContext,RayContext
-from typing import Dict,Any,List,Optional,Union,Tuple,Callable,Annotated
+from typing import Dict,Any,List,Optional,Union,Tuple,Callable
 from pyjava.udf import UDFBuilder
 import ray
 from ray.util.client.common import ClientActorHandle, ClientObjectRef
@@ -167,107 +167,6 @@ class Templates:
             clean_func=lambda s: s
         )
     
-    @staticmethod
-    def deepseek_code_chat():
-        '''
-        DeepSeek Coder Chat mode template:
-
-        ### Instruction:
-        ['content']
-        ### Response:
-        ['content']
-        <|EOT|>
-        ### Instruction:
-        ['content']
-        ### Response:
-        '''
-        
-
-        def sys_format(t:Annotated[str,"the field system_msg in role_mapping "],
-                       v:Annotated[str,"the system message in chat"]):
-            m = PromptTemplate.from_template(t)
-            return m.format(system_msg=v)
-        
-        def user_format(t:Annotated[str,"the field user_role in role_mapping"],
-                        v:Annotated[str,"the user message in chat"]):
-            '''
-            format single user message
-            '''
-            return f"### Instruction:\n{v}"
-        
-        def assistant_format(t:Annotated[str,"the field assistant_role in role_mapping"],
-                             v:Annotated[str,"the assistant message in chat"]):
-            '''
-            format single assitant message.
-            
-            Notice that here we do not use `t` , because we will
-            use the `t` as the final suffix.
-            '''
-            return f"### Response:\n{v}\n<|EOT|>"
-        
-        return Template(
-            role_mapping={
-               "user_role":"",
-               "assistant_role": "### Response:\n",
-               "system_msg":"{system_msg}",
-               "system_msg_func":sys_format,
-               "user_role_func": user_format,
-               "assistant_role_func": assistant_format
-            },            
-            generation_config={"generation.stop_token_ids":[32021]},
-            clean_func=lambda s: s
-        )
-    @staticmethod
-    def deepseek_code_insertion():        
-        def sys_format(t,v):
-            if "<｜fim▁hole｜>" not in v:
-                raise Exception("the system message should contains <｜fim▁hole｜>")
-            m = PromptTemplate.from_template(t)
-            return m.format(system_msg=v)
-        
-        def user_format(t,v):            
-            return ""
-        
-        def assistant_format(t,v):            
-            return ""
-        
-        return Template(
-            role_mapping={
-               "user_role":"",
-               "assistant_role": "",
-               "system_msg":"<｜fim▁begin｜>{system_msg}<｜fim▁end｜>",
-               "system_msg_func":sys_format,
-               "user_role_func": user_format,
-               "assistant_role_func": assistant_format
-            },            
-            generation_config={},
-            clean_func=lambda s: s
-        )
-    
-    @staticmethod
-    def deepseek_code_completion():        
-        def sys_format(t,v):            
-            m = PromptTemplate.from_template(t)
-            return m.format(system_msg=v)
-        
-        def user_format(t,v):            
-            return ""
-        
-        def assistant_format(t,v):            
-            return ""
-        
-        return Template(
-            role_mapping={
-               "user_role":"",
-               "assistant_role": "",
-               "system_msg":"{system_msg}",
-               "system_msg_func":sys_format,
-               "user_role_func": user_format,
-               "assistant_role_func": assistant_format
-            },            
-            generation_config={},
-            clean_func=lambda s: s
-        )
     @staticmethod
     def yi():
         def clean_func(v):                    

@@ -57,3 +57,4 @@ protobuf==3.20.0
 ## the package above will downgrade the tokenizers, so here we need to force lock the version
 # tokenizers==0.13.3
 
+vllm==0.2.7
